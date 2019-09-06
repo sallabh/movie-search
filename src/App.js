@@ -43,7 +43,10 @@ class MoviesList extends React.Component {
 
         return (
             <div>
-                <form onSubmit={this.search}>
+				<Navbar>
+                <Navbar.Brand><h4 id="head">Movie Search App</h4></Navbar.Brand>
+  				<Navbar.Toggle />
+					 <form onSubmit={this.search}>
                     <input
                         placeholder="Search for a movie"
                         onChange={this.handleChange}
@@ -52,6 +55,13 @@ class MoviesList extends React.Component {
                         <i className="fa fa-search" />
                     </button>
                 </form>
+  				<Navbar.Collapse className="justify-content-end">
+    			<Navbar.Text>
+      			<h4 id="sign-in"><i class="fa fa-user"></i> Sallabh Kumar  <i class="fa fa-caret-down"></i></h4>
+    			</Navbar.Text>
+ 				</Navbar.Collapse>
+				</Navbar>
+               
                 {moviesList.length > 0 ? (
                     moviesList.map(movie => (
                         <MovieCard movieID={movie} key={movie} />
@@ -130,17 +140,7 @@ class App extends React.Component {
 		
 		return (
 			<div className="App">
-				<Navbar>
-                <Navbar.Brand><h4 id="head">Movie Search App</h4></Navbar.Brand>
-  				<Navbar.Toggle />
-  				<Navbar.Collapse className="justify-content-end">
-    			<Navbar.Text>
-      			<h4 id="sign-in"><i class="fa fa-user"></i> Sallabh Kumar  <i class="fa fa-caret-down"></i></h4>
-    			</Navbar.Text>
- 				</Navbar.Collapse>
-				</Navbar>
-				
-				
+								
 				<MoviesList />
 		<footer>
 		<p>
